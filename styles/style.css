@@ -60,7 +60,7 @@ div#welcome{
     
     padding: 270px 0px 170px 0px;
     text-align: center;
-    min-width: 300px;
+    min-width: 250px;
     max-width: 1000px;
     margin: 0px auto 100px auto;
     
@@ -82,7 +82,7 @@ div#welcome > p{
     text-shadow: 4px 4px 8px grey;
 }
 main{
-    min-width: 300px;
+    min-width: 250px;
     max-width: 1000px;
     background-color: rgba(73, 74, 78, 0.247);
     margin: auto;
@@ -118,7 +118,7 @@ div.video > iframe{
 
 div.social{
     max-width: 1070px;
-    min-width: 300px;
+    min-width: 250px;
     height: 100px;
     background-color: var(--cor3);
     margin: 20px auto 30px auto;
