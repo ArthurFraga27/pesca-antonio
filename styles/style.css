@@ -10,6 +10,14 @@
  
     --fonte1: "Cormorant Garamond", sans-serif;
     --fonte2: "Open Sans", sans-serif;
+    --FontRbt:"Roboto", sans-serif; /*texto longo e nav*/
+    --FontsSerif: "Cormorant Garamond", serif; /*títulos topicos e leituras rápidas */
+    --corimg:#2F2F2F;
+    --corfundo1: white;
+    --corfundo2:#F5F5F5;
+    --headerfooter: black;
+    --corbtn: #888888;
+
 }
 *{
     margin: 0px;
@@ -18,42 +26,128 @@
 body{
     background-color: #FCFAF7;
     font-family: var(--fonte2);
-    z-index: 5;
-}
-header{
-    background-image:linear-gradient(to right, black, rgba(0, 0, 0, 0.527));
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    z-index: 2;
 }
 
-.logo{
-    float: left;
-    display: block;
-    padding: 15px 16px;
-    width: 29%;
-    height: 35px;
-    color: white;
-    font-size: 0.7em;
-}
-header a{
-    float: right;
-    display: block;
-    padding: 14px 16px;
+a{
     text-decoration: none;
-    color: white;
-    font-family: var(--fonte2);
 }
+.header{
+    background-color: rgba(14, 14, 14, 0.846);
+    padding-inline: 15px;
+    border-radius: 8px;
+}
+.nav{
+    max-width: 1280px;
+    height: 90px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo > img{
+    height: 80px;
 
-header a:hover{
-    text-decoration: underline;
-    color: rgba(226, 225, 225, 0.863);
-    background-color: rgba(134, 131, 131, 0.548);
+}
+.nav-list{
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    
+}
+.nav-list a{
+    font-size: 18px;
+    color: #ffffff;
+    font-family: var(--FontRbt);
+    padding-block: 16px;
+}
+.hamburguer{
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+    
+}
+.hamburguer::before,
+.hamburguer::after{
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin-top: 5px;
+    position: relative;
     transition: 0.3s;
-    border-radius: 2px;
+}
+@media (max-width: 750px) {
+    .hamburguer{
+        display: block;
+        z-index: 3;
+    }
+
+    .nav-list{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(108, 213, 255, 0.84);
+        clip-path: circle(100px at 100% -30%);
+        transition: 1s ease-out;
+      
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+    .nav-list a{
+        font-size: 24px;
+        opacity: 0px;
+    }
+
+    .nav-list li:nth-child(1) a{
+        transition: 0.3s 0.1s;
+    }
+    .nav-list li:nth-child(2) a{
+        transition: 0.3s 0.2s;
+    }
+    .nav-list li:nth-child(3) a{
+        transition: 0.3s 0.3s;
+    }
+    .nav-list li:nth-child(4) a{
+        transition: 0.3s 0.4s;
+    }
+    .nav-list li:nth-child(5) a{
+        transition: 0.3s 0.5s;
+    }
+
+    .nav.active .nav-list{
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+        z-index: 1;
+    }
+    .nav.active .nav-list a{
+        opacity: 1;
+    }
+
+    .nav.active .hamburguer{
+        position: fixed;
+        top: 30px;
+        right: 16px;
+        border-top-color: transparent;
+    }
+    .nav.active .hamburguer::before{
+        transform: rotate(135deg);
+    }
+    .nav.active .hamburguer::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
+a:hover{
+    color: skyblue;
+    transition: 0.2s;
 }
 
 div#welcome{
@@ -63,7 +157,7 @@ div#welcome{
     min-width: 250px;
     max-width: 1000px;
     margin: 0px auto 100px auto;
-    
+    z-index: 0;
     
 }
 div#welcome > h1{
@@ -98,7 +192,14 @@ main h1{
     margin-top: 30px;
     
 }
-
+ main p{
+    text-align: center;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+    font-size: 1.1em;
+ }
 div.video{
     margin-bottom: 30px;
     margin-left: -20px;
